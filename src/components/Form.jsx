@@ -6,16 +6,13 @@ import Modal from 'react-modal';
 import { usePathname } from 'next/navigation';
 import { MaskedInput, createDefaultMaskGenerator } from 'react-hook-mask';
 
-const Form = ({ inModal }) => {
-  //get url
-  const path = usePathname();
-
+const Form = ({ inModal, path }) => {
   //success modal control
   const [isSuccessOpen, setIsSuccessOpen] = useState(false);
   const customStyles = {
     overlay: {
       backgroundColor: 'rgba(0, 0, 0, 0.5)',
-      zIndex: '2',
+      zIndex: '3',
     },
     content: {
       top: '50%',
@@ -68,19 +65,14 @@ const Form = ({ inModal }) => {
     if (isFormValid) {
       const phone = '+7' + shortPhone;
       //fetch data
-      fetch(
-        path == '/layouts'
-          ? 'https://grandavenue.ru/api/form/price'
-          : 'https://grandavenue.ru/api/form/question',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            // 'Authorization': `Bearer ${token}`,
-          },
-          body: JSON.stringify({ name, phone }),
-        }
-      );
+      fetch(`${'https://grandavenue.ru/api/form/' + path}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          // 'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({ name, phone }),
+      });
 
       // console.log('Form submitted successfully!');
       setName('');
@@ -109,7 +101,7 @@ const Form = ({ inModal }) => {
           </div>
         </div>
         <div className='form__phone'>
-          <div className={!shortPhone ? 'input' : 'input valid'}>
+          <div className={shortPhone.length !== 10 ? 'input' : 'input valid'}>
             <MaskedInput
               className={!inModal ? '' : 'input_black'}
               placeholder='Ваш телефон'
@@ -117,11 +109,13 @@ const Form = ({ inModal }) => {
               value={shortPhone}
               onChange={setShortPhone}
             />
-            {errors.phone && <p className='input__error'>{errors.phone}</p>}
+            {errors.shortPhone && (
+              <p className='input__error'>{errors.shortPhone}</p>
+            )}
           </div>
         </div>
         <div className='form__policy'>
-          <span>Отправляя форму, вы соглашаетесь с </span>
+          <span>Отправляя форму, вы соглашаетесь с </span>
           <Link href={'/policy'} className='link' target='_blank'>
             условиями обработки личных данных
           </Link>
@@ -149,8 +143,8 @@ const Form = ({ inModal }) => {
           <span className='modal__message'>
             Ваша заявка отправлена.
             <br />
-            Мы свяжемся с вами
-            <br /> в ближайшее время.
+            Мы свяжемся с вами
+            <br /> в ближайшее время.
           </span>
           <button
             className='modal__button button button_black'

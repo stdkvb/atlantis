@@ -48,12 +48,18 @@
 
     .form__policy {
       justify-self: center;
+
+      @include mobile {
+        font-size: 10px;
+      }
+
       span {
         color: $black;
       }
 
-      @include mobile {
-        font-size: 10px;
+      .link {
+        color: $gray40;
+        text-decoration: none;
       }
     }
 
@@ -61,6 +67,10 @@
       &::after {
         content: url('/images/check_black.svg');
       }
+    }
+
+    input::placeholder {
+      color: $gray30;
     }
   }
 
@@ -83,7 +93,8 @@
     }
 
     .link {
-      color: $gray40;
+      color: $white;
+      text-decoration: underline;
     }
   }
 

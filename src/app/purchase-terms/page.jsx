@@ -21,7 +21,7 @@ const PurchaseTerms = () => {
   const customStyles = {
     overlay: {
       backgroundColor: 'rgba(0, 0, 0, 0.5)',
-      zIndex: '2',
+      zIndex: '3',
     },
     content: {
       top: '50%',

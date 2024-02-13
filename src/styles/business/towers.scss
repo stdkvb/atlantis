@@ -1,0 +1,125 @@
+.towers {
+  background-image: url('/images/towers.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  .container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-right: 0;
+    padding-bottom: 100px;
+    width: fit-content;
+    height: fit-content;
+    z-index: 5;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  &__svg {
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+
+    @include min_desktop_huge {
+      height: unset;
+    }
+
+    path {
+      fill: $darkblue;
+      opacity: 0;
+      @include transition;
+
+      &.active {
+        @include transition;
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &__point {
+    position: absolute;
+    z-index: 3;
+    background-image: url('/images/point_blue.svg');
+    width: 5%;
+    height: 6%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+
+  &__item {
+    position: absolute;
+    z-index: 3;
+    top: 140px;
+    left: 70px;
+    padding: 32px;
+    border: solid 1px $blue;
+    max-width: 25%;
+    color: $blue;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    opacity: 0;
+    @include transition;
+
+    &.active {
+      opacity: 1;
+    }
+
+    p {
+      font-size: 18px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    gap: 42px;
+    flex-wrap: wrap;
+    max-width: 220px;
+    row-gap: 24px;
+
+    @include desktop {
+      gap: 24px;
+    }
+
+    @include mobile {
+      gap: 12px;
+    }
+  }
+
+  &__info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @include mobile {
+      gap: 4px;
+    }
+
+    span:first-child {
+      opacity: 0.4;
+    }
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    p {
+      text-transform: uppercase;
+      font-size: 20px;
+
+      max-width: 500px;
+    }
+  }
+}

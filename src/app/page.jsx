@@ -10,8 +10,7 @@ import { SectionContext } from '../components/SectionProvider';
 import Home from '../components/Home';
 import Project from '../components/Project';
 import Location from '../components/Location';
-import Architecture from '../components/Architecture';
-import Infrastructure from '../components/Infrastructure';
+import Towers from '../components/Towers';
 import Layouts from '../components/Layouts';
 import Parking from '../components/Parking';
 import Contacts from '../components/Contacts';
@@ -31,7 +30,7 @@ const Page = () => {
       speed='2000'
       initialSlide={section}
     >
-      <SwiperSlide>
+      {/* <SwiperSlide>
         <Home />
       </SwiperSlide>
       <SwiperSlide>
@@ -39,14 +38,11 @@ const Page = () => {
       </SwiperSlide>
       <SwiperSlide>
         <Location />
-      </SwiperSlide>
+      </SwiperSlide> */}
       <SwiperSlide>
-        <Architecture />
+        <Towers />
       </SwiperSlide>
-      <SwiperSlide>
-        <Infrastructure />
-      </SwiperSlide>
-      <SwiperSlide>
+      {/* <SwiperSlide>
         <Layouts />
       </SwiperSlide>
       <SwiperSlide>
@@ -55,7 +51,7 @@ const Page = () => {
       <SwiperSlide>
         <Contacts />
       </SwiperSlide>
-      <SwiperWatcher />
+      <SwiperWatcher /> */}
     </Swiper>
   );
 };

@@ -11,6 +11,8 @@ import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
+
+import 'swiper/css/pagination';
 import Form from '@/src/components/Form';
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
@@ -316,7 +318,10 @@ const Layouts = () => {
           <div className='gallery__close' onClick={onGalleryClose}></div>
           <div className='gallery'>
             <div className='container'>
-              <h2>Лучшие виды в городе</h2>
+              <h1>
+                Лучшие виды
+                <br />в городе
+              </h1>
             </div>
             <Swiper
               className='gallery__swiper'
@@ -329,7 +334,7 @@ const Layouts = () => {
               modules={[FreeMode, Navigation, Thumbs]}
             >
               {currentLayout &&
-                currentLayout.views.map((image) => (
+                currentLayout.windowViewsUrl.map((image) => (
                   <SwiperSlide key={image.id}>
                     <img src={'https://grandavenue.ru' + image} alt='photo' />
                   </SwiperSlide>
@@ -348,7 +353,7 @@ const Layouts = () => {
                 loop={true}
               >
                 {currentLayout &&
-                  currentLayout.views.map((image) => (
+                  currentLayout.windowViewsUrl.map((image) => (
                     <SwiperSlide key={image.id}>
                       <img src={'https://grandavenue.ru' + image} alt='photo' />
                     </SwiperSlide>

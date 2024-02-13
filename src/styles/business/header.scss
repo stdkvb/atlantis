@@ -10,14 +10,14 @@
   }
 
   &_filled {
-    background-color: $brown;
+    background-color: $darkblue;
 
     .header__wrapper {
-      background-color: $brown;
+      background-color: $darkblue;
     }
 
     .header__button {
-      background-color: $brown;
+      background-color: $darkblue;
 
       &:hover {
         background-color: $white;

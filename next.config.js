@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {};
 
 module.exports = {
   reactStrictMode: false,
@@ -10,6 +10,11 @@ module.exports = {
         hostname: 'grandavenue.ru',
         port: '',
       },
+      {
+        protocol: 'https',
+        hostname: 's3-alpha-sig.figma.com',
+        port: '',
+      },
     ],
   },
   experimental: {
@@ -17,6 +22,6 @@ module.exports = {
     // be enabled to allow parallel threads
     // with nextjs automatic static generation
     workerThreads: false,
-    cpus: 4
-  }
-}
+    cpus: 4,
+  },
+};
