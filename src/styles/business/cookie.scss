@@ -1,0 +1,39 @@
+.cookie {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 100;
+
+  &__wrapper {
+    background-color: $gray10;
+    width: 100%;
+    max-width: 1110px;
+    padding: 8px 10px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+  }
+
+  span {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: $gray90;
+
+    @include mobile {
+      font-size: 10px;
+    }
+  }
+
+  a {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: $gray90;
+
+    @include mobile {
+      font-size: 10px;
+    }
+  }
+}

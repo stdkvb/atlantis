@@ -1,0 +1,122 @@
+.header {
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 3;
+
+  @include tablet {
+    background-color: $darkblue;
+  }
+
+  &_filled {
+    background-color: $brown;
+
+    .header__wrapper {
+      background-color: $brown;
+    }
+
+    .header__button {
+      background-color: $brown;
+
+      &:hover {
+        background-color: $white;
+      }
+    }
+  }
+
+  &__wrapper {
+    width: 100%;
+    padding: 24px 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include tablet {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
+    @include mobile {
+      width: unset;
+      padding: 13px 15px;
+    }
+  }
+
+  &__column {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+
+    &:first-of-type {
+      gap: 60px;
+    }
+  }
+
+  &__burger {
+    cursor: pointer;
+    @include transition;
+
+    &:hover {
+      scale: 1.1;
+    }
+  }
+
+  &__discount {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    cursor: pointer;
+
+    @include tablet_small {
+      display: none;
+    }
+
+    span {
+      @include InterMedium;
+      text-transform: uppercase;
+      display: block;
+      max-width: 135px;
+    }
+  }
+
+  &__logo {
+    z-index: 1;
+    cursor: pointer;
+
+    @include mobile {
+      z-index: 2;
+    }
+
+    img:nth-child(1) {
+      @include mobile {
+        display: none;
+      }
+    }
+
+    img:nth-child(2) {
+      @include min_mobile {
+        display: none;
+      }
+    }
+  }
+
+  &__phone-icon {
+    z-index: 2;
+    @include min_tablet_small {
+      display: none;
+    }
+  }
+
+  &__phone {
+    @include tablet_small {
+      display: none;
+    }
+  }
+
+  &__button {
+    @include desktop_small {
+      display: none;
+    }
+  }
+}

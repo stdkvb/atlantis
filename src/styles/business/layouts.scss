@@ -1,0 +1,294 @@
+.layouts {
+  background-color: $gray90;
+  height: 100vh;
+  touch-action: none;
+
+  .container {
+    height: 100%;
+    display: grid;
+    gap: 20px;
+    flex-direction: column;
+    padding-top: 100px;
+    padding-bottom: 50px;
+
+    @include tablet {
+      display: flex;
+      padding-top: 72px;
+      gap: 10px;
+      justify-content: space-between;
+    }
+
+    @include mobile {
+      padding-top: 72px;
+      padding-bottom: 100px;
+    }
+  }
+
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    @include desktop {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+
+  &__description {
+    width: 47%;
+    padding-left: 40px;
+
+    @include desktop {
+      width: unset;
+      padding: unset;
+    }
+
+    @include tablet {
+      display: none;
+    }
+
+    p {
+      @include HeliosRegular;
+      font-size: 24px;
+      max-width: 619px;
+
+      @include tablet {
+        font-size: 20px;
+      }
+
+      @include mobile {
+        font-size: 16px;
+      }
+    }
+  }
+
+  &__filter {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__subtitle {
+    color: $gray30;
+  }
+
+  &__filter-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+
+    @include tablet {
+      gap: 12px;
+    }
+
+    @include mobile {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .button {
+      min-width: 154px;
+      text-align: center;
+
+      &.active {
+        background-color: $white;
+        color: $gray90;
+        border-color: $white;
+      }
+
+      @include tablet {
+        min-width: 91px;
+      }
+
+      @include mobile {
+        min-width: unset;
+        width: 100%;
+      }
+    }
+  }
+
+  &__content {
+    border: solid 1px $white;
+    border-radius: 8px;
+    overflow: hidden;
+    display: none;
+
+    @include tablet {
+      flex-direction: column;
+    }
+
+    @include tablet {
+      flex-grow: 1;
+    }
+
+    &.active {
+      display: flex;
+    }
+  }
+
+  &__column {
+    width: 50%;
+    max-width: 870px;
+    position: relative;
+
+    @include tablet {
+      width: unset;
+      max-width: unset;
+    }
+
+    &:first-child {
+      border-right: solid 1px $white;
+      width: 55%;
+
+      @include tablet {
+        border-right: none;
+        border-bottom: solid 1px $white;
+        width: unset;
+      }
+
+      @include tablet {
+        flex-grow: 1;
+      }
+    }
+
+    &:last-child {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+
+  &__image {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    img:not(.layouts__zoom) {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__zoom {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    cursor: pointer;
+    @include transition;
+
+    &:hover {
+      scale: 1.05;
+    }
+
+    @include mobile {
+      margin: unset;
+      right: 8px;
+      bottom: 8px;
+      top: unset;
+      left: unset;
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  &__views {
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @include mobile {
+      display: none;
+      position: unset;
+      flex-direction: row;
+      align-items: center;
+      padding: 24px 10px;
+    }
+
+    .button {
+      width: 94px;
+      text-align: center;
+
+      &.active {
+        background-color: $white;
+        color: $gray90;
+        border-color: $white;
+      }
+    }
+  }
+
+  &__text {
+    border-bottom: solid 1px $white;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include desktop {
+      padding: 24px;
+    }
+
+    @include mobile {
+      padding: 10px;
+      gap: 12px;
+    }
+
+    p {
+      font-size: 18px;
+      max-width: 619px;
+
+      @include tablet {
+        display: none;
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    gap: 42px;
+
+    @include desktop {
+      gap: 24px;
+    }
+
+    @include mobile {
+      gap: 12px;
+    }
+  }
+
+  &__info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @include mobile {
+      gap: 4px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 24px;
+    padding: 24px;
+    flex-wrap: wrap;
+
+    @include desktop {
+      padding: 24px;
+    }
+
+    @include mobile {
+      padding: 10px;
+      gap: 8px;
+    }
+  }
+}

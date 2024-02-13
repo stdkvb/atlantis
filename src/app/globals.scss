@@ -1,0 +1,30 @@
+@import '../styles/breakpoints.scss';
+@import '../styles/fonts';
+@import '../styles/vars';
+@import '../styles/mixins';
+@import '../styles/basic';
+
+@import '../styles/ui/link.scss';
+@import '../styles/ui/button.scss';
+@import '../styles/ui/input.scss';
+@import '../styles/ui/modal.scss';
+@import '../styles/ui/pagination.scss';
+
+@import '../styles/business/cookie.scss';
+@import '../styles/business/header.scss';
+@import '../styles/business/menu.scss';
+@import '../styles/business/page.scss';
+@import '../styles/business/welcome.scss';
+@import '../styles/business/project.scss';
+@import '../styles/business/swiper-page.scss';
+@import '../styles/business/location.scss';
+@import '../styles/business/gallery.scss';
+@import '../styles/business/layouts.scss';
+@import '../styles/business/contacts.scss';
+@import '../styles/business/footer.scss';
+@import '../styles/business/form.scss';
+@import '../styles/business/policy.scss';
+@import '../styles/business/how-to-buy.scss';
+@import '../styles/business/purchase-terms.scss';
+@import '../styles/business/web-cam.scss';
+@import '../styles/business/construction-progress.scss';

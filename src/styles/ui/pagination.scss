@@ -1,0 +1,37 @@
+.pagination {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  position: fixed;
+  right: 40px;
+  bottom: 100px;
+  z-index: 2;
+
+  @include tablet {
+    display: none;
+  }
+
+  a {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+
+    span {
+      display: block;
+      text-transform: uppercase;
+      writing-mode: vertical-rl;
+      transform: scale(-1);
+      font-size: 14px;
+    }
+  }
+}

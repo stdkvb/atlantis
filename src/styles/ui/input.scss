@@ -1,0 +1,50 @@
+.input {
+  position: relative;
+
+  input {
+    border: solid 1px $white;
+    border-radius: 8px;
+    overflow: hidden;
+    background: transparent;
+    color: $white;
+    padding: 16px 24px;
+    width: 100%;
+    text-transform: uppercase;
+    display: block;
+
+    &::placeholder {
+      color: $gray30;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus ~ .input__error {
+      display: block;
+    }
+
+    &.input_black {
+      color: $black;
+      border: solid 1px $gray30;
+      max-width: 433px;
+    }
+  }
+
+  &.valid {
+    &::after {
+      content: url('/images/check.svg');
+      position: absolute;
+      right: 16px;
+      top: 16px;
+    }
+  }
+}
+
+.input__error {
+  display: none;
+  color: $red;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin-top: 10px;
+}

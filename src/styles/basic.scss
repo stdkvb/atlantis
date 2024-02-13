@@ -1,0 +1,251 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 120%;
+  scroll-behavior: smooth;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: $gray80 transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: $gray80;
+  border: none;
+}
+
+html,
+body {
+  @include InterRegular;
+  font-size: 16px;
+  color: $white;
+  height: 100%;
+  touch-action: pan-x pan-y;
+
+  @include mobile {
+    font-size: 14px;
+  }
+}
+
+h1 {
+  @include HeliosBold;
+  font-size: 45px;
+  text-transform: uppercase;
+
+  @include tablet {
+    font-size: 30px;
+  }
+
+  @include mobile {
+    font-size: 20px;
+  }
+}
+
+h2 {
+  @include HeliosRegular;
+  font-size: 72px;
+  text-transform: uppercase;
+
+  @include tablet {
+    font-size: 30px;
+  }
+
+  @include mobile {
+    font-size: 24px;
+  }
+}
+
+h3 {
+  @include HeliosRegular;
+  font-size: 36px;
+
+  @include tablet {
+    font-size: 24px;
+  }
+
+  @include mobile {
+    font-size: 16px;
+  }
+}
+
+h5 {
+  @include HeliosBold;
+  font-size: 24px;
+
+  @include mobile {
+    font-size: 16px;
+  }
+}
+
+a {
+  color: $white;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:focus {
+    outline: 0;
+    box-shadow: none;
+  }
+}
+
+.container {
+  margin-left: 70px;
+  margin-right: 70px;
+
+  @include tablet {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+
+  @include mobile {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  &_narrow {
+    @include min_tablet {
+      margin-right: 138px;
+    }
+  }
+}
+
+.swiper-button-next::after {
+  content: url('/images/next.svg') !important;
+  @include transition;
+
+  @include mobile {
+    content: url('/images/next_small.svg') !important;
+  }
+}
+
+.swiper-button-next:hover::after {
+  opacity: 0.7;
+}
+
+.swiper-button-prev::after {
+  content: url('/images/prev.svg') !important;
+  @include transition;
+
+  @include mobile {
+    content: url('/images/prev_small.svg') !important;
+  }
+}
+
+.swiper-button-prev:hover::after {
+  opacity: 0.7;
+}
+
+.swiper-button-prev.swiper-button-disabled {
+  display: none;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  top: unset !important;
+  bottom: 100px;
+}
+
+.swiper-button-prev,
+.swiper-rtl .swiper-button-next {
+  left: auto !important;
+  right: 260px !important;
+
+  @include tablet {
+    right: 185px !important;
+  }
+
+  @include mobile {
+    right: 140px !important;
+  }
+}
+
+.swiper-button-next,
+.swiper-rtl .swiper-button-prev {
+  right: 84px !important;
+
+  @include tablet {
+    right: 43px !important;
+  }
+
+  @include mobile {
+    right: 22px !important;
+  }
+}
+
+.swiper-pagination {
+  width: fit-content !important;
+  left: auto !important;
+  right: 122px !important;
+  bottom: 93px !important;
+  @include HeliosBold;
+  font-size: 25px;
+
+  @include tablet {
+    font-size: 18px;
+    right: 80px !important;
+    bottom: 100px !important;
+  }
+
+  @include mobile {
+    font-size: 14px;
+    right: 60px !important;
+    bottom: 105px !important;
+  }
+}
+
+.swiper-pagination-current {
+  @include HeliosBold;
+  font-size: 45px;
+
+  @include tablet {
+    font-size: 32px;
+  }
+
+  @include mobile {
+    font-size: 20px;
+  }
+}
+
+.swiper-pagination-total {
+  @include HeliosBold;
+  font-size: 25px;
+
+  @include tablet {
+    font-size: 18px;
+  }
+
+  @include mobile {
+    font-size: 14px;
+  }
+}
+
+.swiper-pagination-current:before {
+  content: '0';
+}
+
+.swiper-pagination-total:before {
+  content: '0';
+}
+
+.page-swiper {
+  background-image: url('/images/transition.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: #273c55;
+  background-position: center;
+
+  @include tablet_small {
+    background-image: url('/images/transition-mobile.png');
+    background-size: 100%;
+  }
+}

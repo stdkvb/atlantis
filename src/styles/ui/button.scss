@@ -1,0 +1,87 @@
+.button {
+  border-radius: 8px;
+  border: 1px solid $white;
+  padding: 16px 32px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  width: fit-content;
+  max-height: 50px;
+  cursor: pointer;
+  @include transition;
+  background-color: $white;
+  color: $gray90;
+  font-weight: 500;
+
+  @include mobile {
+    width: 100%;
+    text-align: center;
+  }
+
+  &:hover {
+    background-color: $blue;
+    border-color: $blue;
+    color: $white;
+  }
+
+  &.active {
+    cursor: default;
+  }
+
+  &_secondary {
+    background-color: transparent;
+    color: $white;
+
+    &:hover {
+      background-color: $white;
+      color: $gray90;
+      border-color: $white;
+    }
+
+    &:focus {
+      border: 1px dashed $white;
+    }
+  }
+
+  &_black {
+    background-color: $gray90;
+    color: $white;
+    border: none;
+
+    &:hover {
+      background-color: $blue;
+      color: $white;
+    }
+  }
+
+  &_black-border {
+    background-color: $white;
+    color: $black;
+    border: solid 1px $black;
+
+    &:hover {
+      background-color: $blue;
+      border-color: $blue;
+      color: $white;
+    }
+  }
+
+  &_small {
+    padding: 8px 12px;
+
+    @include mobile {
+      width: fit-content;
+    }
+  }
+
+  &_disabled {
+    border-color: $gray20;
+    background: $gray20;
+    color: $black !important;
+
+    &:hover {
+      border-color: $gray20;
+      background: $gray20;
+      cursor: auto;
+    }
+  }
+}

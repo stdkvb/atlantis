@@ -1,0 +1,118 @@
+.purchase-terms {
+  background-color: $brown;
+  min-height: 100vh;
+
+  .container {
+    padding-top: 150px;
+    padding-bottom: 40px;
+    display: grid;
+    grid-template-columns: repeat(2fr 1fr);
+    grid-template-areas:
+      'title button'
+      'list list';
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+
+    @include tablet {
+      padding-top: 100px;
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        'title'
+        'list'
+        'button';
+      gap: 32px;
+    }
+  }
+
+  h2 {
+    grid-area: title;
+  }
+
+  .button {
+    grid-area: button;
+  }
+
+  &__list {
+    grid-area: list;
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: minmax(100px, 288px) repeat(4, minmax(130px, auto));
+    justify-content: space-between;
+    gap: 24px;
+    border-bottom: solid 1px $white;
+    padding-bottom: 40px;
+
+    &:not(:first-child) {
+      padding-top: 40px;
+
+      @include tablet {
+        padding-top: 24px;
+      }
+
+      span {
+        @include min_tablet {
+          display: none;
+        }
+      }
+    }
+
+    @include tablet {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      column-gap: 50px;
+      padding-bottom: 24px;
+    }
+
+    @include mobile {
+      justify-content: flex-start;
+    }
+
+    div {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 30px;
+
+      &:last-child {
+        h5 {
+          opacity: 1;
+          font-weight: 700;
+        }
+      }
+
+      @include tablet {
+        width: fit-content;
+        gap: 12px;
+        min-width: 100px;
+
+        &:first-child {
+          width: 100%;
+        }
+      }
+    }
+
+    span {
+      color: $gray30;
+    }
+
+    img {
+      object-fit: contain;
+      max-width: 288px;
+      max-height: 100px;
+    }
+
+    h5 {
+      @include HeliosRegular;
+      opacity: 0.8;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+  }
+}

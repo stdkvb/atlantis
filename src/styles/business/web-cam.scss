@@ -1,0 +1,60 @@
+.web-cam {
+  background-color: $brown;
+  min-height: 100vh;
+
+  .container {
+    padding-top: 200px;
+    padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include tablet {
+      padding-top: 100px;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+
+    @include desktop {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include tablet {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__item {
+    h5 {
+      @include HeliosRegular;
+      margin-top: 32px;
+
+      @include tablet {
+        margin-top: 12px;
+      }
+    }
+  }
+
+  &__video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    position: relative;
+
+    iframe {
+      border: 0;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: -10px;
+      bottom: 0;
+      left: -10px;
+      right: 0;
+      margin: auto;
+    }
+  }
+}

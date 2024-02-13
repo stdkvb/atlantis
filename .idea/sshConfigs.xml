@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" connectionConfig="{&quot;serverAliveInterval&quot;:300}" host="ssh.gra4949255.nichost.ru" id="a63f5156-239d-4863-a6ae-81a02d543660" port="22" customName="grandavenue" nameFormat="CUSTOM" username="gra4949255" useOpenSSHConfig="true">
+        <option name="customName" value="grandavenue" />
+      </sshConfig>
+      <sshConfig authType="PASSWORD" host="195.24.67.24" id="c8f13112-3418-4aa3-83dc-ca26022288f0" port="22" nameFormat="DESCRIPTIVE" username="root" useOpenSSHConfig="true" />
+    </configs>
+  </component>
+</project>

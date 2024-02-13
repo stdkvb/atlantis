@@ -1,0 +1,97 @@
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    'name phone'
+    'policy submit';
+  gap: 24px;
+  width: 50%;
+
+  @include desktop {
+    width: 100%;
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'name'
+      'phone'
+      'policy'
+      'submit';
+    gap: 8px;
+  }
+
+  &_modal {
+    max-width: 433px;
+    justify-self: center;
+    grid-template-columns: 1fr;
+    width: 100%;
+    grid-template-areas:
+      'name'
+      'phone'
+      'submit'
+      'policy';
+
+    .button {
+      width: 100%;
+      max-width: 433px;
+
+      &:not(.button_disabled) {
+        background-color: $black;
+        color: $white;
+      }
+
+      &:hover:not(.button_disabled) {
+        background-color: $orange;
+      }
+    }
+
+    .form__policy {
+      justify-self: center;
+      span {
+        color: $black;
+      }
+
+      @include mobile {
+        font-size: 10px;
+      }
+    }
+
+    .input.valid {
+      &::after {
+        content: url('/images/check_black.svg');
+      }
+    }
+  }
+
+  &__name {
+    grid-area: name;
+  }
+
+  &__phone {
+    grid-area: phone;
+  }
+
+  &__policy {
+    grid-area: policy;
+    text-transform: uppercase;
+    color: $white;
+    font-size: 12px;
+
+    @include mobile {
+      margin-top: 4px;
+    }
+
+    .link {
+      color: $gray40;
+    }
+  }
+
+  &__submit {
+    grid-area: submit;
+
+    @include mobile {
+      margin-top: 16px;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.link {
+  @include transition;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: fit-content;
+
+  &:hover {
+    color: $gray30;
+  }
+}

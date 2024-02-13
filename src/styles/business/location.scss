@@ -1,0 +1,221 @@
+.location {
+  touch-action: none;
+  background-color: $gray90;
+
+  &__text {
+    position: absolute;
+    bottom: 100px;
+    left: 70px;
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      bottom: 80px;
+      left: 30px;
+      max-width: 400px;
+    }
+
+    @include mobile {
+      bottom: 40px;
+      max-width: 300px;
+      left: 15px;
+    }
+
+    h1 {
+      margin-bottom: 24px;
+      max-width: 584px;
+    }
+
+    p {
+      max-width: 487px;
+      font-size: 20px;
+      text-transform: uppercase;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+
+      @include tablet {
+        right: 30px;
+        bottom: 50px;
+        font-size: 20px;
+      }
+
+      @include mobile {
+        max-width: 290px;
+        bottom: 100px;
+        right: 15px;
+        font-size: 16px;
+        -webkit-line-clamp: 4;
+      }
+    }
+  }
+
+  &__numbers {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-top: 56px;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__number {
+    background-color: $darkblue;
+    padding: 15px;
+    width: 270px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    h3 {
+      @include HeliosBold;
+      font-size: 24px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+  }
+
+  &__wrapper {
+    @include tablet_small {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      overflow-x: auto;
+    }
+  }
+
+  &__map {
+    @include tablet_small {
+      position: relative;
+      display: flex;
+      height: 100%;
+      width: -moz-fit-content;
+      width: fit-content;
+    }
+  }
+
+  &__background {
+    overflow: hidden;
+    background-position: 50% 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    @include tablet_small {
+      display: none;
+    }
+  }
+
+  &__background-mobile {
+    position: relative;
+    min-height: 100%;
+    top: 0;
+    left: 0;
+    display: block;
+    touch-action: pan-x;
+
+    @include min_tablet_small {
+      display: none;
+    }
+  }
+
+  &__base {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 54px;
+    height: 72px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    left: 36.5%;
+    top: 36%;
+
+    @include tablet_small {
+      width: 36px;
+      height: 50px;
+      top: 47%;
+      scroll-margin: calc(100vw / 2);
+    }
+  }
+
+  &__point {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 64px;
+    height: 68px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+    @include transition;
+    z-index: 2;
+
+    &:hover {
+      scale: 1.1;
+    }
+
+    @include tablet_small {
+      width: 38px;
+      height: 40px;
+
+      &#Парк-50-летия {
+        top: 43% !important;
+      }
+
+      &#Яй {
+        top: 35% !important;
+      }
+
+      &#Центральный {
+        left: 7% !important;
+        top: 64% !important;
+      }
+
+      &#Мир {
+        left: 83% !important;
+        top: 22% !important;
+      }
+
+      &#Уфа-Арена {
+        left: 5% !important;
+        top: 46% !important;
+      }
+
+      &#Парк-Якутова {
+        left: 2% !important;
+        top: 21% !important;
+      }
+
+      &#Ласточка {
+        left: 15% !important;
+        top: 52% !important;
+      }
+
+      &#Солнечный-круг {
+        left: 26% !important;
+        top: 55% !important;
+      }
+
+      &#№1 {
+        left: 58% !important;
+        top: 92% !important;
+      }
+
+      &#ТинькоффХолл {
+        top: 56% !important;
+      }
+    }
+  }
+}

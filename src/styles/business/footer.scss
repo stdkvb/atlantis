@@ -1,0 +1,170 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-top: 90px;
+  padding-bottom: 40px;
+  align-self: end;
+
+  @include desktop {
+    padding-top: 50px;
+    gap: 20px;
+  }
+
+  @include tablet_small {
+    gap: 10px;
+  }
+
+  @include mobile {
+    padding: 14px 14px 100px 14px;
+  }
+
+  &__socials {
+    position: absolute;
+    top: 0;
+
+    a {
+      height: fit-content;
+      img {
+        @include transition;
+      }
+    }
+
+    a:hover {
+      img {
+        scale: 1.1;
+      }
+    }
+
+    @include mobile {
+      position: unset;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0;
+    }
+  }
+
+  &__phone {
+    @include HeliosBold;
+    font-size: 42px;
+    margin-bottom: 12px;
+
+    @include desktop {
+      font-size: 30px;
+      margin-bottom: 0;
+    }
+
+    @include mobile {
+      font-size: 26px;
+    }
+  }
+
+  &__mail {
+    @include HeliosRegular;
+    color: $gray30;
+    font-size: 36px;
+    margin-bottom: 50px;
+
+    @include desktop {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    @include mobile {
+      font-size: 20px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__row {
+    display: flex;
+    gap: 44px;
+    align-items: flex-end;
+    margin-bottom: 70px;
+
+    @include desktop {
+      margin-bottom: 0;
+    }
+
+    @include tablet {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+    }
+
+    @include mobile {
+      margin-bottom: 0;
+    }
+
+    .link {
+      text-transform: uppercase;
+    }
+  }
+
+  &__office {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      width: unset;
+    }
+
+    span {
+      text-transform: uppercase;
+
+      &:nth-child(1) {
+        margin-bottom: 12px;
+
+        @include mobile {
+          margin-bottom: 5px;
+        }
+      }
+
+      &:nth-child(2) {
+        font-weight: 500;
+        margin-bottom: 4px;
+        font-size: 20px;
+
+        @include mobile {
+          font-size: 16px;
+        }
+      }
+
+      &:nth-child(3) {
+        font-size: 14px;
+
+        @include mobile {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    border-top: solid 1px $gray60;
+    padding-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include desktop_extra-small {
+      flex-direction: column;
+      gap: 24px;
+      padding-top: 24px;
+    }
+
+    @include mobile {
+      gap: 12px;
+    }
+
+    span {
+      text-transform: uppercase;
+    }
+
+    .link {
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+  }
+}
