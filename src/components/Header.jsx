@@ -12,7 +12,7 @@ import Form from './Form';
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-const Header = ({ color }) => {
+const Header = () => {
   //get data
   const { data, error, isLoading } = useSWR(
     'https://grandavenue.ru/api/header',
@@ -72,6 +72,8 @@ const Header = ({ color }) => {
           path === '/web-cam' ||
           path === '/policy'
             ? 'header header_filled'
+            : section == 3
+            ? 'header header_inverse'
             : 'header'
         }
       >
@@ -79,14 +81,22 @@ const Header = ({ color }) => {
           <div className='header__column'>
             <Image
               className='header__burger'
-              src='images/burger.svg'
+              src={
+                section == 3 ? 'images/burger_blue.svg' : 'images/burger.svg'
+              }
               width={24}
               height={24}
               alt='menu'
               onClick={openMenu}
             />
+
             <div className='header__discount' onClick={() => setIsOpen(true)}>
-              <Image src='images/sale.svg' width={24} height={24} alt='sale' />
+              <Image
+                src={section == 3 ? 'images/sale_blue.svg' : 'images/sale.svg'}
+                width={24}
+                height={24}
+                alt='sale'
+              />
               <span>{data && !isLoading && data.data.additionalText}</span>
             </div>
           </div>
@@ -120,7 +130,9 @@ const Header = ({ color }) => {
               className='header__phone-icon'
             >
               <Image
-                src='images/phone.svg'
+                src={
+                  section == 3 ? 'images/phone_blue.svg' : 'images/phone.svg'
+                }
                 width={24}
                 height={24}
                 alt='phone'
@@ -135,7 +147,11 @@ const Header = ({ color }) => {
             <Link
               href='/'
               onClick={() => setSection(5)}
-              className={'header__button button button_secondary'}
+              className={
+                section == 3
+                  ? 'header__button button button_blue-border'
+                  : 'header__button button button_secondary'
+              }
             >
               Выбрать квартиру
             </Link>

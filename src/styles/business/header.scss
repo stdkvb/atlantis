@@ -5,10 +5,6 @@
   width: 100%;
   z-index: 3;
 
-  @include tablet {
-    background-color: $darkblue;
-  }
-
   &_filled {
     background-color: $darkblue;
 
@@ -22,6 +18,14 @@
       &:hover {
         background-color: $white;
       }
+    }
+  }
+
+  &_inverse {
+    color: $blue;
+
+    .header__phone {
+      color: $darkblue;
     }
   }
 
@@ -67,6 +71,11 @@
     gap: 8px;
     align-items: center;
     cursor: pointer;
+    @include transition;
+
+    &:hover {
+      opacity: 0.8;
+    }
 
     @include tablet_small {
       display: none;

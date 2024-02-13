@@ -17,7 +17,7 @@ import Contacts from '../components/Contacts';
 import { SwiperWatcher } from '../components/SwiperWatcher';
 
 const Page = () => {
-  const { section } = useContext(SectionContext);
+  const { section, setSection } = useContext(SectionContext);
 
   return (
     <Swiper
@@ -29,8 +29,9 @@ const Page = () => {
       direction='vertical'
       speed='2000'
       initialSlide={section}
+      onSlideChange={(swiper) => setSection(swiper.activeIndex)}
     >
-      {/* <SwiperSlide>
+      <SwiperSlide>
         <Home />
       </SwiperSlide>
       <SwiperSlide>
@@ -38,11 +39,11 @@ const Page = () => {
       </SwiperSlide>
       <SwiperSlide>
         <Location />
-      </SwiperSlide> */}
+      </SwiperSlide>
       <SwiperSlide>
         <Towers />
       </SwiperSlide>
-      {/* <SwiperSlide>
+      <SwiperSlide>
         <Layouts />
       </SwiperSlide>
       <SwiperSlide>
@@ -51,7 +52,7 @@ const Page = () => {
       <SwiperSlide>
         <Contacts />
       </SwiperSlide>
-      <SwiperWatcher /> */}
+      <SwiperWatcher />
     </Swiper>
   );
 };

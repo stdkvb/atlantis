@@ -64,6 +64,18 @@
     }
   }
 
+  &_blue-border {
+    background-color: $white;
+    color: $blue;
+    border: solid 1px $blue;
+
+    &:hover {
+      background-color: $blue;
+      border-color: $blue;
+      color: $white;
+    }
+  }
+
   &_small {
     padding: 8px 12px;
 

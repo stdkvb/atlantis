@@ -19,16 +19,6 @@
   }
 
   &__svg {
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    height: 100%;
-
-    @include min_desktop_huge {
-      height: unset;
-    }
-
     path {
       fill: $darkblue;
       opacity: 0;
@@ -38,6 +28,9 @@
         @include transition;
         opacity: 0.5;
       }
+    }
+    @include tablet {
+      display: none;
     }
   }
 
