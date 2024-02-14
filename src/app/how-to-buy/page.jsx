@@ -73,12 +73,12 @@ const HowToBuy = () => {
                 <h3>{item.text}</h3>
                 <p>{item.smallText}</p>
                 {item.title === 'Ипотека' ? (
-                  <Link href='/purchase-terms' className='button'>
+                  <Link href='/purchase-terms' className='button button_blue'>
                     Рассчитать ипотеку
                   </Link>
                 ) : (
                   <span
-                    className='button button_secondary'
+                    className='button button_blue'
                     onClick={() => setIsOpen(true)}
                   >
                     Оставить заявку

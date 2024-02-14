@@ -35,15 +35,6 @@
     .button {
       width: 100%;
       max-width: 433px;
-
-      &:not(.button_disabled) {
-        background-color: $black;
-        color: $white;
-      }
-
-      &:hover:not(.button_disabled) {
-        background-color: $orange;
-      }
     }
 
     .form__policy {

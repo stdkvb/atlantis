@@ -1,6 +1,6 @@
 .how-to-buy {
-  background-color: $darkblue;
   min-height: 100vh;
+  color: $darkblue;
 
   .container {
     padding-top: 150px;
@@ -10,8 +10,11 @@
     gap: 24px;
 
     @include tablet {
-      padding-top: 92px;
       grid-template-columns: 1fr;
+    }
+
+    @include tablet_small {
+      padding-top: 100px;
     }
   }
 
@@ -46,8 +49,7 @@
       transition: none;
 
       @include tablet {
-        border-radius: 8px;
-        border: 1px solid $white;
+        border: 1px solid $darkblue;
         padding: 16px 32px;
         text-transform: uppercase;
         white-space: nowrap;
@@ -56,7 +58,7 @@
         cursor: pointer;
         @include transition;
         background-color: transparent;
-        color: $white;
+        color: $darkblue;
         font-weight: 500;
         font-size: 14px;
         opacity: 1;
@@ -80,14 +82,6 @@
         opacity: 1;
         font-size: 30px;
         font-weight: 700;
-
-        &:hover {
-          color: $white;
-
-          @include tablet {
-            color: $gray90;
-          }
-        }
 
         @include tablet {
           @include InterRegular;

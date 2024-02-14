@@ -67,11 +67,10 @@ const Header = () => {
     <>
       <header
         className={
-          path === '/purchase-terms' ||
-          path === '/how-to-buy' ||
-          path === '/web-cam' ||
-          path === '/policy'
-            ? 'header header_filled'
+          path === '/web-cam' || path === '/policy'
+            ? 'header header_filled-blue'
+            : path === '/purchase-terms' || path === '/how-to-buy'
+            ? 'header header_filled-white'
             : section == 3 || section == 4
             ? 'header header_inverse'
             : 'header'
@@ -82,7 +81,10 @@ const Header = () => {
             <Image
               className='header__burger'
               src={
-                section == 3 || section == 4
+                section == 3 ||
+                section == 4 ||
+                path === '/purchase-terms' ||
+                path === '/how-to-buy'
                   ? 'images/burger_blue.svg'
                   : 'images/burger.svg'
               }
@@ -95,7 +97,10 @@ const Header = () => {
             <div className='header__discount' onClick={() => setIsOpen(true)}>
               <Image
                 src={
-                  section == 3 || section == 4
+                  section == 3 ||
+                  section == 4 ||
+                  path === '/purchase-terms' ||
+                  path === '/how-to-buy'
                     ? 'images/sale_blue.svg'
                     : 'images/sale.svg'
                 }
@@ -118,7 +123,10 @@ const Header = () => {
                 data &&
                 !isLoading &&
                 'https://атлантис.рф' +
-                  (section == 3 || section == 4
+                  (section == 3 ||
+                  section == 4 ||
+                  path === '/purchase-terms' ||
+                  path === '/how-to-buy'
                     ? data.data.mobileLogoUrl
                     : data.data.desktopLogoUrl)
               }
@@ -132,7 +140,10 @@ const Header = () => {
             >
               <Image
                 src={
-                  section == 3 || section == 4
+                  section == 3 ||
+                  section == 4 ||
+                  path === '/purchase-terms' ||
+                  path === '/how-to-buy'
                     ? 'images/phone_blue.svg'
                     : 'images/phone.svg'
                 }
@@ -151,7 +162,10 @@ const Header = () => {
               href='/'
               onClick={() => setSection(4)}
               className={
-                section == 3 || section == 4
+                section == 3 ||
+                section == 4 ||
+                path === '/purchase-terms' ||
+                path === '/how-to-buy'
                   ? 'header__button button button_blue-border'
                   : 'header__button button button_secondary'
               }

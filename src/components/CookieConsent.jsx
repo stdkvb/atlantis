@@ -31,7 +31,7 @@ const CookieConsent = (props) => {
           </Link>
         </span>
         <button
-          className='button button_black button_small'
+          className='button button_blue button_small'
           onClick={() => acceptCookie()}
         >
           ok

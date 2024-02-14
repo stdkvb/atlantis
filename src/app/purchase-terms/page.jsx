@@ -41,9 +41,9 @@ const PurchaseTerms = () => {
     <>
       <section className='purchase-terms'>
         <div className='container'>
-          <h2>Условия покупки</h2>
+          <h1>Условия покупки</h1>
           <div
-            className='button'
+            className='button button_blue'
             onClick={() => {
               setIsOpen(true);
             }}

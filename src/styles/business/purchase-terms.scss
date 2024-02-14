@@ -1,6 +1,6 @@
 .purchase-terms {
-  background-color: $darkblue;
   min-height: 100vh;
+  color: $darkblue;
 
   .container {
     padding-top: 150px;
@@ -15,13 +15,16 @@
     gap: 40px;
 
     @include tablet {
-      padding-top: 100px;
       grid-template-columns: 1fr;
       grid-template-areas:
         'title'
         'list'
         'button';
       gap: 32px;
+    }
+
+    @include tablet_small {
+      padding-top: 100px;
     }
   }
 
@@ -31,6 +34,7 @@
 
   .button {
     grid-area: button;
+    justify-self: flex-end;
   }
 
   &__list {
@@ -59,7 +63,7 @@
       }
     }
 
-    @include tablet {
+    @include desktop_small {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
@@ -80,12 +84,17 @@
 
       &:last-child {
         h5 {
+          margin-left: auto;
           opacity: 1;
           font-weight: 700;
+
+          @include tablet_small {
+            margin-left: unset;
+          }
         }
       }
 
-      @include tablet {
+      @include desktop_small {
         width: fit-content;
         gap: 12px;
         min-width: 100px;

@@ -123,7 +123,7 @@ const Form = ({ inModal, path }) => {
         <button
           className={
             isFormValid
-              ? 'button form__submit'
+              ? 'button button_blue form__submit'
               : 'button button_disabled form__submit'
           }
           disabled={!isFormValid}
@@ -147,7 +147,7 @@ const Form = ({ inModal, path }) => {
             <br /> в ближайшее время.
           </span>
           <button
-            className='modal__button button button_black'
+            className='modal__button button button_blue'
             onClick={() => setIsSuccessOpen(false)}
           >
             отлично!
