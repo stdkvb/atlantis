@@ -53,8 +53,10 @@
       fill: $darkblue;
       opacity: 0;
       @include transition;
+      cursor: pointer;
 
       &.active {
+        cursor: default;
         @include transition;
         opacity: 0.5;
       }

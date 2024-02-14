@@ -48,6 +48,18 @@
     }
   }
 
+  &_blue {
+    background-color: $darkblue;
+    color: $white;
+    border: none;
+    border: solid 1px $darkblue;
+
+    &:hover {
+      background-color: $white;
+      color: $darkblue;
+    }
+  }
+
   &_black-border {
     background-color: $white;
     color: $black;
@@ -62,12 +74,12 @@
 
   &_blue-border {
     background-color: $white;
-    color: $blue;
-    border: solid 1px $blue;
+    color: $darkblue;
+    border: solid 1px $darkblue;
 
     &:hover {
-      background-color: $blue;
-      border-color: $blue;
+      background-color: $darkblue;
+      border-color: $darkblue;
       color: $white;
     }
   }

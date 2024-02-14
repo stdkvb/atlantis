@@ -1,7 +1,8 @@
 .layouts {
-  background-color: $darkblue;
+  background-color: $white;
   height: 100vh;
   touch-action: none;
+  color: $darkblue;
 
   .container {
     height: 100%;
@@ -11,7 +12,7 @@
     padding-top: 100px;
     padding-bottom: 50px;
 
-    @include tablet {
+    @include tablet_small {
       display: flex;
       padding-top: 72px;
       gap: 10px;
@@ -36,25 +37,26 @@
   }
 
   &__description {
-    width: 47%;
+    width: 60%;
     padding-left: 40px;
 
     @include desktop {
-      width: unset;
-      padding: unset;
-    }
-
-    @include tablet {
       display: none;
     }
 
     p {
       @include HeliosRegular;
-      font-size: 24px;
-      max-width: 619px;
+      font-size: 20px;
+      max-width: 760px;
+      text-transform: uppercase;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
 
       @include tablet {
-        font-size: 20px;
+        font-size: 18px;
       }
 
       @include mobile {
@@ -70,15 +72,16 @@
   }
 
   &__subtitle {
+    font-size: 14px;
     color: $gray30;
   }
 
   &__filter-list {
     display: flex;
-    flex-wrap: wrap;
     gap: 24px;
 
-    @include tablet {
+    @include tablet_small {
+      flex-wrap: wrap;
       gap: 12px;
     }
 
@@ -89,16 +92,17 @@
     }
 
     .button {
-      min-width: 154px;
+      width: 100%;
       text-align: center;
 
       &.active {
-        background-color: $white;
-        color: $gray90;
-        border-color: $white;
+        background-color: $darkblue;
+        color: $white;
+        border-color: $darkblue;
       }
 
-      @include tablet {
+      @include tablet_small {
+        width: unset;
         min-width: 91px;
       }
 
@@ -110,21 +114,20 @@
   }
 
   &__content {
-    border: solid 1px $white;
-    border-radius: 8px;
     overflow: hidden;
     display: none;
 
-    @include tablet {
+    @include tablet_small {
       flex-direction: column;
-    }
-
-    @include tablet {
-      flex-grow: 1;
     }
 
     &.active {
       display: flex;
+      gap: 24px;
+
+      @include tablet_small {
+        gap: 0;
+      }
     }
   }
 
@@ -139,12 +142,10 @@
     }
 
     &:first-child {
-      border-right: solid 1px $white;
       width: 55%;
 
       @include tablet {
         border-right: none;
-        border-bottom: solid 1px $white;
         width: unset;
       }
 
@@ -170,7 +171,11 @@
     img:not(.layouts__zoom) {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
+
+      @include tablet_small {
+        max-height: 24vh;
+      }
     }
   }
 
@@ -221,14 +226,14 @@
 
       &.active {
         background-color: $white;
-        color: $gray90;
-        border-color: $white;
+        color: $darkblue;
+        border-color: $darkblue;
       }
     }
   }
 
   &__text {
-    border-bottom: solid 1px $white;
+    border-bottom: solid 1px #23232366;
     padding: 24px;
     display: flex;
     flex-direction: column;
@@ -246,6 +251,15 @@
     p {
       font-size: 18px;
       max-width: 619px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+
+      @include desktop {
+        -webkit-line-clamp: 3;
+      }
 
       @include tablet {
         display: none;
@@ -280,15 +294,31 @@
     display: flex;
     gap: 24px;
     padding: 24px;
+    padding-right: 0;
     flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
 
     @include desktop {
       padding: 24px;
     }
 
+    @include tablet {
+      gap: 12px;
+    }
+
     @include mobile {
       padding: 10px;
       gap: 8px;
+    }
+
+    div {
+      display: flex;
+      gap: 24px;
+
+      @include tablet {
+        width: 100%;
+      }
     }
   }
 }

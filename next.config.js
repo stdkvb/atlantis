@@ -25,6 +25,11 @@ module.exports = {
         hostname: 'xn--80aayklzcd.xn--p1ai',
         port: '',
       },
+      {
+        protocol: 'https',
+        hostname: 'xn--80aayklzcd.xn--undefined-k3h8b',
+        port: '',
+      },
     ],
   },
   experimental: {

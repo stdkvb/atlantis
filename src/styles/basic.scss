@@ -241,7 +241,7 @@ a {
   background-image: url('/images/transition.png');
   background-size: 100%;
   background-repeat: no-repeat;
-  background-color: #273c55;
+  background-color: $darkblue;
   background-position: center;
 
   @include tablet_small {

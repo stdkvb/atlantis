@@ -19,13 +19,13 @@ const Parking = () => {
         !isLoading &&
         data.data.map((item) => (
           <section className='page welcome' key={item.id}>
-            {/* <Image
+            <Image
               fill={true}
               className='page__background page__background_zoom'
               src={'https://атлантис.рф' + item.fileUrl}
               alt='photo'
-            /> */}
-            <video
+            />
+            {/* <video
               autoPlay
               muted
               loop
@@ -34,7 +34,7 @@ const Parking = () => {
               src={data && !isLoading && 'https://атлантис.рф' + item.fileUrl}
               // src='videos/sample-5s.mp4'
               alt='background video'
-            ></video>
+            ></video> */}
             <div className='container'>
               <h1>{item.title}</h1>
               {item.btnLink && (

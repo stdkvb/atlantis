@@ -1,11 +1,10 @@
 'use client';
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { FreeMode, Navigation, Thumbs, Pagination } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
-import 'swiper/css/thumbs';
 import 'swiper/css/pagination';
 import useSWR from 'swr';
 import Modal from 'react-modal';
@@ -133,21 +132,6 @@ const Location = () => {
     setCurrentPoint(null);
   };
 
-  //swiper control
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
-
-  const sliderRef = useRef(null);
-
-  const handlePrev = useCallback(() => {
-    if (!sliderRef.current) return;
-    sliderRef.current.swiper.slidePrev();
-  }, []);
-
-  const handleNext = useCallback(() => {
-    if (!sliderRef.current) return;
-    sliderRef.current.swiper.slideNext();
-  }, []);
-
   return (
     <section className='page location'>
       <div className='location__wrapper'>
@@ -188,18 +172,14 @@ const Location = () => {
         <h1>{data && !isLoading && data.data.title}</h1>
         <p>{data && !isLoading && data.data.additionalText}</p>
         <div className='location__numbers'>
-          <div className='location__number'>
-            <h3>20 мин</h3>
-            <span>до центра</span>
-          </div>
-          <div className='location__number'>
-            <h3>40 мин</h3>
-            <span>до аэропорта</span>
-          </div>
-          <div className='location__number'>
-            <h3>5 мин</h3>
-            <span>до парка Кашкадан</span>
-          </div>
+          {data &&
+            !isLoading &&
+            data.data.benefits.map((item) => (
+              <div key={item.id} className='location__number'>
+                <h3>{item.mainText}</h3>
+                <span>{item.smallText}</span>
+              </div>
+            ))}
         </div>
       </div>
 
@@ -214,7 +194,7 @@ const Location = () => {
         </div>
         <div className='gallery'>
           <div className='container'>
-            <h2>{currentPoint && currentPoint.title}</h2>
+            <h1>{currentPoint && currentPoint.title}</h1>
             {currentPoint && currentPoint.description && (
               <p
                 dangerouslySetInnerHTML={{

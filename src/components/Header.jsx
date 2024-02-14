@@ -72,7 +72,7 @@ const Header = () => {
           path === '/web-cam' ||
           path === '/policy'
             ? 'header header_filled'
-            : section == 3
+            : section == 3 || section == 4
             ? 'header header_inverse'
             : 'header'
         }
@@ -82,7 +82,9 @@ const Header = () => {
             <Image
               className='header__burger'
               src={
-                section == 3 ? 'images/burger_blue.svg' : 'images/burger.svg'
+                section == 3 || section == 4
+                  ? 'images/burger_blue.svg'
+                  : 'images/burger.svg'
               }
               width={24}
               height={24}
@@ -92,7 +94,11 @@ const Header = () => {
 
             <div className='header__discount' onClick={() => setIsOpen(true)}>
               <Image
-                src={section == 3 ? 'images/sale_blue.svg' : 'images/sale.svg'}
+                src={
+                  section == 3 || section == 4
+                    ? 'images/sale_blue.svg'
+                    : 'images/sale.svg'
+                }
                 width={24}
                 height={24}
                 alt='sale'
@@ -112,7 +118,7 @@ const Header = () => {
                 data &&
                 !isLoading &&
                 'https://атлантис.рф' +
-                  (section == 3
+                  (section == 3 || section == 4
                     ? data.data.mobileLogoUrl
                     : data.data.desktopLogoUrl)
               }
@@ -126,7 +132,9 @@ const Header = () => {
             >
               <Image
                 src={
-                  section == 3 ? 'images/phone_blue.svg' : 'images/phone.svg'
+                  section == 3 || section == 4
+                    ? 'images/phone_blue.svg'
+                    : 'images/phone.svg'
                 }
                 width={24}
                 height={24}
@@ -143,7 +151,7 @@ const Header = () => {
               href='/'
               onClick={() => setSection(4)}
               className={
-                section == 3
+                section == 3 || section == 4
                   ? 'header__button button button_blue-border'
                   : 'header__button button button_secondary'
               }

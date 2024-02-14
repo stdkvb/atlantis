@@ -6,11 +6,11 @@ import Image from 'next/image';
 import useSWR from 'swr';
 import Modal from 'react-modal';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
-import 'swiper/css/thumbs';
+import 'swiper/css/pagination';
 
 import 'swiper/css/pagination';
 import Form from '@/src/components/Form';
@@ -34,7 +34,7 @@ const Layouts = () => {
   const customStyles = {
     overlay: {
       backgroundColor: 'rgba(0, 0, 0, 0.5)',
-      zIndex: '2',
+      zIndex: '3',
     },
     content: {
       top: '50%',
@@ -118,11 +118,16 @@ const Layouts = () => {
 
   return (
     <section className='layouts'>
-      <div className='container container_narrow'>
+      <div className='container'>
         <div className='layouts__title'>
-          <h2>Планировки</h2>
+          <h1>Планировки</h1>
           <div className='layouts__description'>
-            <p>{data && !isLoading && data.data.additionalText}</p>
+            {/* <p>{data && !isLoading && data.data.additionalText}</p> */}
+            <p>
+              Удобные планировочные решения с рассчитанной функциональностью и
+              эргономикой для комфортного проживания. Выгодный метраж квартир по
+              доступным ценам.
+            </p>
           </div>
         </div>
         <div className='layouts__filter'>
@@ -134,10 +139,10 @@ const Layouts = () => {
                 <span
                   className={
                     activeIndex === i
-                      ? 'button button_secondary button_small active'
-                      : 'button button_secondary button_small'
+                      ? 'button button_blue-border button_small active'
+                      : 'button button_blue-border button_small'
                   }
-                  key={layout.id}
+                  key={i}
                   onClick={() => setActiveIndex(i)}
                 >
                   {layout.name}
@@ -154,7 +159,7 @@ const Layouts = () => {
                   ? 'layouts__content active'
                   : 'layouts__content'
               }
-              key={layout.id}
+              key={i}
             >
               <div className='layouts__column'>
                 <div className='layouts__image'>
@@ -177,14 +182,14 @@ const Layouts = () => {
                     onClick={() => onModalOpen(layout)}
                   />
                 </div>
-                <div className='layouts__views'>
+                {/* <div className='layouts__views'>
                   <span className='layouts__subtitle'>Вид:</span>
                   {views.map((item, i) => (
                     <span
                       className={
                         activeView === i
-                          ? 'button button_secondary button_small active'
-                          : 'button button_secondary button_small'
+                          ? 'button button_blue-border button_small active'
+                          : 'button button_blue-border button_small'
                       }
                       key={item}
                       onClick={() => setActiveView(i)}
@@ -192,7 +197,7 @@ const Layouts = () => {
                       {item}
                     </span>
                   ))}
-                </div>
+                </div> */}
               </div>
               <div className='layouts__column'>
                 <div className='layouts__text'>
@@ -218,20 +223,25 @@ const Layouts = () => {
                   <p>{layout.description}</p>
                 </div>
                 <div className='layouts__buttons'>
-                  <span className='button' onClick={() => setIsFormOpen(true)}>
-                    Узнать стоимость
-                  </span>
-                  {data && !isLoading && layout.link && (
-                    <Link
-                      href={data && !isLoading && layout.link}
-                      className='button button_secondary'
-                      target='_blank'
+                  <div>
+                    <span
+                      className='button button_blue'
+                      onClick={() => setIsFormOpen(true)}
                     >
-                      3D-тур
-                    </Link>
-                  )}
+                      Узнать стоимость
+                    </span>
+                    {data && !isLoading && layout.link && (
+                      <Link
+                        href={data && !isLoading && layout.link}
+                        className='button button_blue-border'
+                        target='_blank'
+                      >
+                        3D-тур
+                      </Link>
+                    )}
+                  </div>
                   <span
-                    className='button button_secondary'
+                    className='button button_blue-border'
                     onClick={() => onGalleryOpen(layout)}
                   >
                     Вид из окон
@@ -254,10 +264,10 @@ const Layouts = () => {
                 <span
                   className={
                     modalActiveView === i
-                      ? 'button button_black-border button_small active'
-                      : 'button button_black-border button_small'
+                      ? 'button button_blue-border button_small active'
+                      : 'button button_blue-border button_small'
                   }
-                  key={item}
+                  key={i}
                   onClick={() => setModalActiveView(i)}
                 >
                   {item}
@@ -315,7 +325,9 @@ const Layouts = () => {
           style={galleryStyles}
           ariaHideApp={false}
         >
-          <div className='gallery__close' onClick={onGalleryClose}></div>
+          <div className='gallery__close' onClick={onGalleryClose}>
+            Вернуться
+          </div>
           <div className='gallery'>
             <div className='container'>
               <h1>
@@ -327,47 +339,19 @@ const Layouts = () => {
               className='gallery__swiper'
               spaceBetween={0}
               slidesPerView={1}
-              thumbs={{
-                swiper:
-                  thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
+              modules={[Navigation, Pagination]}
+              navigation
+              pagination={{
+                type: 'fraction',
               }}
-              modules={[FreeMode, Navigation, Thumbs]}
             >
               {currentLayout &&
-                currentLayout.windowViewsUrl.map((image) => (
-                  <SwiperSlide key={image.id}>
-                    <img src={'https://атлантис.рф' + image} alt='photo' />
+                currentLayout.windowViewsUrl.map((imageUrl, i) => (
+                  <SwiperSlide key={i}>
+                    <img src={'https://атлантис.рф' + imageUrl} alt='photo' />
                   </SwiperSlide>
                 ))}
             </Swiper>
-            <div className='gallery__preview'>
-              <Swiper
-                className='gallery__swiper-preview'
-                ref={sliderRef}
-                onSwiper={setThumbsSwiper}
-                spaceBetween={10}
-                slidesPerView={2}
-                freeMode={true}
-                watchSlidesProgress={true}
-                modules={[FreeMode, Thumbs]}
-                loop={true}
-              >
-                {currentLayout &&
-                  currentLayout.windowViewsUrl.map((image) => (
-                    <SwiperSlide key={image.id}>
-                      <img src={'https://атлантис.рф' + image} alt='photo' />
-                    </SwiperSlide>
-                  ))}
-              </Swiper>
-              <div
-                className='swiper-button-prev prev-arrow'
-                onClick={handlePrev}
-              />
-              <div
-                className='swiper-button-next next-arrow'
-                onClick={handleNext}
-              />
-            </div>
           </div>
         </Modal>
       </div>

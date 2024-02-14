@@ -12,7 +12,7 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const Project = () => {
   //get data
   const { data, error, isLoading } = useSWR(
-    'https://атлантис.рф/api/infrastructure',
+    'https://атлантис.рф/api/project',
     fetcher
   );
 
@@ -30,17 +30,17 @@ const Project = () => {
       >
         {data &&
           !isLoading &&
-          data.data.elements.map((item) => (
+          data.data.afterScrollElements.map((item) => (
             <SwiperSlide key={item.id}>
               <Image
                 className='page__background page__background_zoom'
-                src={'https://атлантис.рф' + item.fileUrl}
+                src={'https://атлантис.рф' + item.imgUrl}
                 fill={true}
                 alt='photo'
               />
               <div className='container'>
                 <h1>{item.title}</h1>
-                <p>{item.previewText}</p>
+                <p>{item.text}</p>
               </div>
             </SwiperSlide>
           ))}
