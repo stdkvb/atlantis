@@ -11,7 +11,7 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const PurchaseTerms = () => {
   //get data
   const { data, error, isLoading } = useSWR(
-    'https://grandavenue.ru/api/purchase-terms',
+    'https://атлантис.рф/api/purchase-terms',
     fetcher
   );
   // console.log(data);
@@ -58,7 +58,7 @@ const PurchaseTerms = () => {
                   <div>
                     <span>Банк</span>
                     <img
-                      src={'https://grandavenue.ru' + item.imageUrl}
+                      src={'https://атлантис.рф' + item.imageUrl}
                       alt='logo'
                     />
                   </div>

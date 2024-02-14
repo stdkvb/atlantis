@@ -65,7 +65,7 @@ const Form = ({ inModal, path }) => {
     if (isFormValid) {
       const phone = '+7' + shortPhone;
       //fetch data
-      fetch(`${'https://grandavenue.ru/api/form/' + path}`, {
+      fetch(`${'https://атлантис.рф/api/form/' + path}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

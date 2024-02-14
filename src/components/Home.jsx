@@ -9,30 +9,30 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const Home = () => {
   //get data
   const { data, error, isLoading } = useSWR(
-    'https://grandavenue.ru/api/main',
+    'https://атлантис.рф/api/main',
     fetcher
   );
   // console.log(data);
 
   return (
     <section className='page welcome'>
-      {/* <Image
+      <Image
         fill={true}
-        className='page__background page__background_zoom'
-        src={data && !isLoading && 'https://grandavenue.ru' + data.data.fileUrl}
+        className='page__background'
+        src={data && !isLoading && 'https://атлантис.рф' + data.data.fileUrl}
         alt='photo'
-      /> */}
-      <video
+      />
+      {/* <video
         autoPlay
         muted
         loop
         playsInline
         className='page__background'
-        src={data && !isLoading && 'https://grandavenue.ru' + data.data.fileUrl}
+        src={data && !isLoading && 'https://атлантис.рф' + data.data.fileUrl}
         // src='videos/video.mp4'
         alt='background video'
-      ></video>
-      <img width='100%' src='images/logo-text.svg' alt='logo' />
+      ></video> */}
+      <img className='welcome__logo' src='images/logo-text.svg' alt='logo' />
       <div className='container'>
         <h1>{data && !isLoading && data.data.title}</h1>
       </div>

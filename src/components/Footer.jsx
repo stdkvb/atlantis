@@ -8,7 +8,7 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const Footer = () => {
   //get data
   const { data, error, isLoading } = useSWR(
-    'https://grandavenue.ru/api/contacts',
+    'https://атлантис.рф/api/contacts',
     fetcher
   );
   // console.log(data);

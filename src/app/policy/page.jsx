@@ -6,7 +6,7 @@ export const metadata = {
 
 //get data
 async function getData() {
-  const res = await fetch('https://grandavenue.ru/api/policy', {
+  const res = await fetch('https://атлантис.рф/api/policy', {
     next: { revalidate: 10 },
   });
 

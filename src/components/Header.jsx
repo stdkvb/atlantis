@@ -15,7 +15,7 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const Header = () => {
   //get data
   const { data, error, isLoading } = useSWR(
-    'https://grandavenue.ru/api/header',
+    'https://атлантис.рф/api/header',
     fetcher
   );
   // console.log(data);
@@ -111,15 +111,10 @@ const Header = () => {
               src={
                 data &&
                 !isLoading &&
-                'https://grandavenue.ru' + data.data.desktopLogoUrl
-              }
-              alt='logo'
-            />
-            <img
-              src={
-                data &&
-                !isLoading &&
-                'https://grandavenue.ru' + data.data.mobileLogoUrl
+                'https://атлантис.рф' +
+                  (section == 3
+                    ? data.data.mobileLogoUrl
+                    : data.data.desktopLogoUrl)
               }
               alt='logo'
             />
@@ -146,7 +141,7 @@ const Header = () => {
             </Link>
             <Link
               href='/'
-              onClick={() => setSection(5)}
+              onClick={() => setSection(4)}
               className={
                 section == 3
                   ? 'header__button button button_blue-border'

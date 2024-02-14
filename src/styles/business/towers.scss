@@ -1,7 +1,17 @@
 .towers {
-  background-image: url('/images/towers.png');
-  background-size: cover;
-  background-repeat: no-repeat;
+  @include desktop_base {
+    overflow-x: scroll;
+    touch-action: pan-x;
+  }
+
+  &__background {
+    position: relative;
+    background-image: url('/images/towers.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    min-width: 1200px;
+  }
 
   .container {
     height: 100%;
@@ -16,9 +26,29 @@
     position: absolute;
     bottom: 0;
     left: 0;
+
+    @include tablet {
+      padding-bottom: 40px;
+    }
   }
 
   &__svg {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 70%,
+      rgba(0, 0, 0, 0.59) 100%
+    );
+
+    @include tablet {
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0) 50%,
+        rgba(0, 0, 0, 0.59) 100%
+      );
+    }
+
     path {
       fill: $darkblue;
       opacity: 0;
@@ -29,8 +59,13 @@
         opacity: 0.5;
       }
     }
-    @include tablet {
-      display: none;
+
+    path.point {
+      opacity: 0.8;
+
+      &.active {
+        opacity: 1;
+      }
     }
   }
 
@@ -64,12 +99,40 @@
     opacity: 0;
     @include transition;
 
+    @include desktop_large {
+      padding: 0;
+      top: unset;
+      bottom: 40px;
+      border: none;
+      color: $white;
+      max-width: 500px;
+      gap: 12px;
+    }
+
+    @include tablet {
+      left: 30px;
+      bottom: 30px;
+    }
+
+    @include mobile {
+      left: 15px;
+    }
+
     &.active {
       opacity: 1;
     }
 
     p {
       font-size: 18px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+
+      @include tablet {
+        font-size: 16px;
+      }
     }
   }
 
@@ -79,6 +142,10 @@
     flex-wrap: wrap;
     max-width: 220px;
     row-gap: 24px;
+
+    @include desktop_large {
+      max-width: unset;
+    }
 
     @include desktop {
       gap: 24px;
@@ -100,6 +167,9 @@
 
     span:first-child {
       opacity: 0.4;
+      @include desktop_large {
+        opacity: 0.8;
+      }
     }
   }
 
@@ -107,12 +177,35 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
+    @include transition;
+
+    @include desktop_large {
+      display: none;
+      opacity: 0;
+    }
+
+    @include tablet {
+      gap: 12px;
+    }
+
+    &.active {
+      display: flex;
+      opacity: 1;
+    }
 
     p {
       text-transform: uppercase;
       font-size: 20px;
-
       max-width: 500px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+
+      @include tablet {
+        font-size: 16px;
+      }
     }
   }
 }

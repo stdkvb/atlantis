@@ -12,7 +12,7 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const Project = () => {
   //get data
   const { data, error, isLoading } = useSWR(
-    'https://grandavenue.ru/api/infrastructure',
+    'https://атлантис.рф/api/infrastructure',
     fetcher
   );
 
@@ -34,7 +34,7 @@ const Project = () => {
             <SwiperSlide key={item.id}>
               <Image
                 className='page__background page__background_zoom'
-                src={'https://grandavenue.ru' + item.fileUrl}
+                src={'https://атлантис.рф' + item.fileUrl}
                 fill={true}
                 alt='photo'
               />

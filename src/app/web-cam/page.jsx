@@ -7,7 +7,7 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const WebCam = () => {
   //get data
   const { data, error, isLoading } = useSWR(
-    'https://grandavenue.ru/api/web-cam',
+    'https://атлантис.рф/api/web-cam',
     fetcher
   );
   // console.log(data);

@@ -12,7 +12,7 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const HowToBuy = () => {
   //get data
   const { data, error, isLoading } = useSWR(
-    'https://grandavenue.ru/api/how-to-buy',
+    'https://атлантис.рф/api/how-to-buy',
     fetcher
   );
   // console.log(data);
@@ -69,10 +69,7 @@ const HowToBuy = () => {
                 className='how-to-buy__content'
                 style={activeTab !== item.id ? { display: 'none' } : {}}
               >
-                <img
-                  src={'https://grandavenue.ru' + item.imageUrl}
-                  alt='photo'
-                />
+                <img src={'https://атлантис.рф' + item.imageUrl} alt='photo' />
                 <h3>{item.text}</h3>
                 <p>{item.smallText}</p>
                 {item.title === 'Ипотека' ? (

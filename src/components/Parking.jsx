@@ -8,7 +8,7 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const Parking = () => {
   //get data
   const { data, error, isLoading } = useSWR(
-    'https://grandavenue.ru/api/parking',
+    'https://атлантис.рф/api/parking',
     fetcher
   );
   // console.log(data);
@@ -22,7 +22,7 @@ const Parking = () => {
             {/* <Image
               fill={true}
               className='page__background page__background_zoom'
-              src={'https://grandavenue.ru' + item.fileUrl}
+              src={'https://атлантис.рф' + item.fileUrl}
               alt='photo'
             /> */}
             <video
@@ -31,9 +31,7 @@ const Parking = () => {
               loop
               playsInline
               className='page__background'
-              src={
-                data && !isLoading && 'https://grandavenue.ru' + item.fileUrl
-              }
+              src={data && !isLoading && 'https://атлантис.рф' + item.fileUrl}
               // src='videos/sample-5s.mp4'
               alt='background video'
             ></video>

@@ -89,14 +89,14 @@ const points = [
 const Location = () => {
   //get data
   const { data, error, isLoading } = useSWR(
-    'https://grandavenue.ru/api/location',
+    'https://атлантис.рф/api/location',
     fetcher
   );
 
   //data for gallery
   const objects = data && !isLoading && data.data.objects;
 
-  //scroll base point into view
+  //scroll base point into view on mobile
   useEffect(() => {
     document.getElementById('base').scrollIntoView();
   }, []);
@@ -236,7 +236,7 @@ const Location = () => {
             {currentPoint &&
               currentPoint.images.map((image) => (
                 <SwiperSlide key={image.id}>
-                  <img src={'https://grandavenue.ru' + image} alt='photo' />
+                  <img src={'https://атлантис.рф' + image} alt='photo' />
                 </SwiperSlide>
               ))}
           </Swiper>

@@ -20,7 +20,7 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const Layouts = () => {
   //get data
   const { data, error, isLoading } = useSWR(
-    'https://grandavenue.ru/api/layouts',
+    'https://атлантис.рф/api/layouts',
     fetcher
   );
 
@@ -160,7 +160,7 @@ const Layouts = () => {
                 <div className='layouts__image'>
                   <img
                     src={
-                      'https://grandavenue.ru' +
+                      'https://атлантис.рф' +
                       ((activeView === 0 && layout.viewsImageUrl.schema) ||
                         (activeView === 1 && layout.viewsImageUrl.top) ||
                         (activeView === 2 && layout.viewsImageUrl.side))
@@ -267,7 +267,7 @@ const Layouts = () => {
             <img
               className='modal__image'
               src={
-                'https://grandavenue.ru' +
+                'https://атлантис.рф' +
                 ((modalActiveView === 0 &&
                   currentLayout &&
                   currentLayout.viewsImageUrl.schema) ||
@@ -336,7 +336,7 @@ const Layouts = () => {
               {currentLayout &&
                 currentLayout.windowViewsUrl.map((image) => (
                   <SwiperSlide key={image.id}>
-                    <img src={'https://grandavenue.ru' + image} alt='photo' />
+                    <img src={'https://атлантис.рф' + image} alt='photo' />
                   </SwiperSlide>
                 ))}
             </Swiper>
@@ -355,7 +355,7 @@ const Layouts = () => {
                 {currentLayout &&
                   currentLayout.windowViewsUrl.map((image) => (
                     <SwiperSlide key={image.id}>
-                      <img src={'https://grandavenue.ru' + image} alt='photo' />
+                      <img src={'https://атлантис.рф' + image} alt='photo' />
                     </SwiperSlide>
                   ))}
               </Swiper>

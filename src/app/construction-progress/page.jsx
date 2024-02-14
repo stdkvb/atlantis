@@ -15,7 +15,7 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const ConstructioProgress = () => {
   //get data
   const { data, error, isLoading } = useSWR(
-    'https://grandavenue.ru/api/construction-progress',
+    'https://атлантис.рф/api/construction-progress',
     fetcher
   );
   // console.log(data);
@@ -113,7 +113,7 @@ const ConstructioProgress = () => {
                     >
                       <span>{month.title}</span>
                       <img
-                        src={'https://grandavenue.ru' + month.images[0]}
+                        src={'https://атлантис.рф' + month.images[0]}
                         alt='photo'
                       />
                     </div>
@@ -154,7 +154,7 @@ const ConstructioProgress = () => {
       {data && !isLoading && (
         <img
           className='construction-progress__background'
-          src={'https://grandavenue.ru' + data.data.img}
+          src={'https://атлантис.рф' + data.data.img}
           alt='photo'
         />
       )}
@@ -183,7 +183,7 @@ const ConstructioProgress = () => {
             {currentMonth &&
               currentMonth.images.map((image, i) => (
                 <SwiperSlide key={i}>
-                  <img src={'https://grandavenue.ru' + image} alt='photo' />
+                  <img src={'https://атлантис.рф' + image} alt='photo' />
                 </SwiperSlide>
               ))}
           </Swiper>
@@ -202,7 +202,7 @@ const ConstructioProgress = () => {
               {currentMonth &&
                 currentMonth.images.map((image, i) => (
                   <SwiperSlide key={i}>
-                    <img src={'https://grandavenue.ru' + image} alt='photo' />
+                    <img src={'https://атлантис.рф' + image} alt='photo' />
                   </SwiperSlide>
                 ))}
             </Swiper>

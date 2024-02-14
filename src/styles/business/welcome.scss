@@ -20,8 +20,9 @@
     }
   }
 
-  img {
+  &__logo {
     margin-top: 215px;
+    width: 100%;
 
     @include tablet {
       margin-top: 0;
