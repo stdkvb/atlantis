@@ -6,7 +6,7 @@
     height: unset;
   }
 
-  @include tablet_small {
+  @include tablet {
     .form_contacts {
       display: none;
     }
@@ -37,6 +37,8 @@
     @include tablet {
       gap: 32px;
       padding-top: 92px;
+      display: flex;
+      flex-direction: column;
     }
 
     @include tablet_small {
@@ -44,8 +46,8 @@
       grid-template-rows: auto auto 1fr;
     }
 
-    @include mobile {
-      padding-top: 120px;
+    @include tablet_small {
+      padding-top: 70px;
     }
   }
 
@@ -76,13 +78,13 @@
       text-transform: uppercase;
     }
 
-    @include tablet_small {
+    @include tablet {
       display: none;
     }
   }
 
   &__button {
-    @include min_tablet_small {
+    @include min_tablet {
       display: none;
     }
   }

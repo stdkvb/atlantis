@@ -30,7 +30,7 @@ const Policy = async () => {
           dangerouslySetInnerHTML={{ __html: data.data.content }}
         ></div>
         <div className='footer__bottom'>
-          <span>© 2023. Все права защищены.</span>
+          <span>© 2024. Все права защищены.</span>
           <Link href={'https://wptt.ru'} className='link'>
             Разработка — вебпространство
           </Link>

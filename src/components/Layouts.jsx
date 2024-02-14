@@ -76,7 +76,7 @@ const Layouts = () => {
   const galleryStyles = {
     overlay: {
       backgroundColor: 'rgba(0, 0, 0, 0.5)',
-      zIndex: '2',
+      zIndex: '3',
     },
     content: {
       top: '50%',
@@ -240,12 +240,14 @@ const Layouts = () => {
                       </Link>
                     )}
                   </div>
-                  <span
-                    className='button button_blue-border'
-                    onClick={() => onGalleryOpen(layout)}
-                  >
-                    Вид из окон
-                  </span>
+                  {data && !isLoading && layout.windowViewsUrl.length > 0 && (
+                    <span
+                      className='button button_blue-border'
+                      onClick={() => onGalleryOpen(layout)}
+                    >
+                      Вид из окон
+                    </span>
+                  )}
                 </div>
               </div>
             </div>

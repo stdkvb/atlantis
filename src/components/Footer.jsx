@@ -15,61 +15,43 @@ const Footer = () => {
 
   return (
     <footer className='footer'>
-      <Link
-        href={`${data && !isLoading && 'tel:' + data.data.phone}`}
-        className='footer__phone link'
-      >
-        {data && !isLoading && data.data.phone}
-      </Link>
-      <Link
-        href={`${data && !isLoading && 'mailto:' + data.data.email}`}
-        className='footer__mail link'
-      >
-        {data && !isLoading && data.data.email}
-      </Link>
-      <div className='footer__row'>
-        <div className='footer__office'>
-          <span>Офис продаж:</span>
-          <span>{data && !isLoading && data.data.address}</span>
-          <span>{data && !isLoading && data.data.schedule}</span>
+      <div className='footer__top'>
+        <div className='footer__column'>
+          <h3>Вы можете связаться с нами по почте или телефону</h3>
+          <div className='footer__links'>
+            <div>
+              <img src='/images/phone-square.svg' alt='phone' />
+              <Link
+                href={`${data && !isLoading && 'tel:' + data.data.phone}`}
+                className='link'
+              >
+                {data && !isLoading && data.data.phone}
+              </Link>
+            </div>
+            <div>
+              <img src='/images/mail-square.svg' alt='mail' />
+              <Link
+                href={`${data && !isLoading && 'mailto:' + data.data.email}`}
+                className='link'
+              >
+                {data && !isLoading && data.data.email}
+              </Link>
+            </div>
+          </div>
         </div>
-        <Link
-          href={`${data && !isLoading && data.data.document.url}`}
-          className='link'
-          download={
-            (data && !isLoading && data.data.document.type) == 'file'
-              ? true
-              : false
-          }
-          target='_blank'
-        >
-          <Image src='images/document.svg' width={50} height={50} alt='viber' />
-          Список разрешительной документации — ДОМ.РФ
-        </Link>
-      </div>
-      <div className='footer__socials'>
-        <Link href={`${data && !isLoading && data.data.links.viber}`}>
-          <Image src='images/viber.svg' width={40} height={40} alt='viber' />
-        </Link>
-        <Link href={`${data && !isLoading && data.data.links.vk}`}>
-          <Image src='images/vk.svg' width={40} height={40} alt='vk' />
-        </Link>
-        <Link href={`${data && !isLoading && data.data.links.tg}`}>
-          <Image
-            src='images/telegram.svg'
-            width={40}
-            height={40}
-            alt='telegram'
-          />
-        </Link>
-        <Link href={`${data && !isLoading && data.data.links.wa}`}>
-          <Image
-            src='images/whatsapp.svg'
-            width={40}
-            height={40}
-            alt='whatsapp'
-          />
-        </Link>
+        <div className='footer__column'>
+          <h3>Или через наши офисы продаж</h3>
+          <div className='footer__links'>
+            <div>
+              <img src='/images/location-square.svg' alt='location' />
+              <span>{data && !isLoading && data.data.address}</span>
+            </div>
+            <div>
+              <img src='/images/clock-square.svg' alt='clock' />
+              <span>{data && !isLoading && data.data.schedule}</span>
+            </div>
+          </div>
+        </div>
       </div>
       <div className='footer__bottom'>
         <span>© 2024. Все права защищены.</span>
