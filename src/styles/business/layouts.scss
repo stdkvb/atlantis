@@ -94,6 +94,7 @@
     .button {
       width: 100%;
       text-align: center;
+      min-height: 46px;
 
       &.active {
         background-color: $darkblue;

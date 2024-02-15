@@ -15,6 +15,21 @@
 
     &_temporary {
       z-index: 3;
+      transition: all 2s ease;
+      opacity: 0;
+      transition: opacity 2s;
+
+      @include tablet {
+        display: none;
+      }
+
+      &.show {
+        opacity: 1;
+      }
+
+      &.hide {
+        display: none;
+      }
     }
   }
 
