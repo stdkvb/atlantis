@@ -1,6 +1,6 @@
 .location {
   touch-action: none;
-  background-color: $gray90;
+  background-color: $darkblue;
 
   &__text {
     position: absolute;
@@ -125,6 +125,7 @@
     left: 0;
     display: block;
     touch-action: pan-x;
+    height: 100%;
 
     @include min_tablet_small {
       display: none;
@@ -139,13 +140,14 @@
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
-    left: 36.5%;
-    top: 36%;
+    left: 31%;
+    top: 29%;
 
     @include tablet_small {
       width: 36px;
       height: 50px;
-      top: 47%;
+      top: 33%;
+      left: 36%;
       scroll-margin: calc(100vw / 2);
     }
   }
@@ -155,6 +157,7 @@
     transform: translate(-50%, -50%);
     width: 64px;
     height: 68px;
+    background-image: url(/images/point.svg);
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;

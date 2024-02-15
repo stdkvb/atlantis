@@ -14,74 +14,10 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const points = [
   {
     id: 0,
-    title: 'Парк-50-летия',
+    title: 'Кашкадан',
     icon: 'url("/images/point.svg")',
-    left: `51%`,
-    top: `31%`,
-  },
-  {
-    id: 1,
-    title: 'Яй',
-    icon: 'url("/images/point.svg")',
-    left: `36%`,
-    top: `24%`,
-  },
-
-  {
-    id: 2,
-    title: 'Центральный',
-    icon: 'url("/images/point.svg")',
-    left: `13%`,
-    top: `51%`,
-  },
-  {
-    id: 3,
-    title: 'Мир',
-    icon: 'url("/images/point.svg")',
-    left: `75%`,
-    top: `21%`,
-  },
-  {
-    id: 4,
-    title: 'Уфа-Арена',
-    icon: 'url("/images/point.svg")',
-    left: `11%`,
-    top: `35%`,
-  },
-  {
-    id: 5,
-    title: 'Парк-Якутова',
-    icon: 'url("/images/point.svg")',
-    left: `4%`,
-    top: `34%`,
-  },
-  {
-    id: 6,
-    title: 'Ласточка',
-    icon: 'url("/images/point.svg")',
-    left: `19%`,
-    top: `39%`,
-  },
-  {
-    id: 7,
-    title: 'Солнечный-круг',
-    icon: 'url("/images/point.svg")',
-    left: `27%`,
-    top: `45%`,
-  },
-  {
-    id: 8,
-    title: '№1',
-    icon: 'url("/images/point.svg")',
-    left: `59%`,
-    top: `53%`,
-  },
-  {
-    id: 9,
-    title: 'ТинькоффХолл',
-    icon: 'url("/images/point.svg")',
-    left: `42%`,
-    top: `43%`,
+    left: `18%`,
+    top: `40%`,
   },
 ];
 
@@ -144,7 +80,7 @@ const Location = () => {
           ></div>
           <img
             className='location__background-mobile'
-            src='images/map-desktop.png'
+            src='images/map-mobile.png'
           />
           <div
             className='location__base'
@@ -160,7 +96,6 @@ const Location = () => {
               id={point.title}
               className='location__point'
               style={{
-                backgroundImage: `${point.icon}`,
                 left: `${point.left}`,
                 top: `${point.top}`,
               }}
