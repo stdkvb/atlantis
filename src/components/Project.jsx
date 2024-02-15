@@ -18,6 +18,23 @@ const Project = () => {
 
   return (
     <section className='page swiper-page swiper-page_wide'>
+      {/* <svg
+        className='page__background page__background_temporary'
+        width='1215.000000'
+        height='1300.000000'
+        viewBox='0 0 1215 1300'
+        fill='#273c55'
+        xmlns='http://www.w3.org/2000/svg'
+      >
+        <path
+          id='Vector'
+          d='M1215 1300L0 1300L607.032 0L1215 1300ZM441.479 1048.24L773.522 1048.24L607.968 693.521L441.479 1048.24Z'
+          fill='transparent'
+          fill-opacity='1.000000'
+          fill-rule='nonzero'
+        />
+      </svg> */}
+
       <Swiper
         className='page__swiper'
         modules={[Navigation, Pagination]}
