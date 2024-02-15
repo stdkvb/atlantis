@@ -5,12 +5,12 @@ import useSWR from 'swr';
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-const Footer = () => {
+const Footer = ({ data }) => {
   //get data
-  const { data, error, isLoading } = useSWR(
-    'https://атлантис.рф/api/contacts',
-    fetcher
-  );
+  // const { data, error, isLoading } = useSWR(
+  //   'https://атлантис.рф/api/contacts',
+  //   fetcher
+  // );
   // console.log(data);
 
   return (
@@ -22,19 +22,19 @@ const Footer = () => {
             <div>
               <img src='/images/phone-square.svg' alt='phone' />
               <Link
-                href={`${data && !isLoading && 'tel:' + data.data.phone}`}
+                href={data ? `${'tel:' + data.data.phone}` : ''}
                 className='link'
               >
-                {data && !isLoading && data.data.phone}
+                {data && data.data.phone}
               </Link>
             </div>
             <div>
               <img src='/images/mail-square.svg' alt='mail' />
               <Link
-                href={`${data && !isLoading && 'mailto:' + data.data.email}`}
+                href={data ? `${'mailto:' + data.data.email}` : ''}
                 className='link'
               >
-                {data && !isLoading && data.data.email}
+                {data && data.data.email}
               </Link>
             </div>
           </div>
@@ -44,11 +44,11 @@ const Footer = () => {
           <div className='footer__links'>
             <div>
               <img src='/images/location-square.svg' alt='location' />
-              <span>{data && !isLoading && data.data.address}</span>
+              <span>{data && data.data.address}</span>
             </div>
             <div>
               <img src='/images/clock-square.svg' alt='clock' />
-              <span>{data && !isLoading && data.data.schedule}</span>
+              <span>{data && data.data.schedule}</span>
             </div>
           </div>
         </div>

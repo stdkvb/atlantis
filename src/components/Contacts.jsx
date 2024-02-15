@@ -4,8 +4,16 @@ import Image from 'next/image';
 import Form from '@/src/components/Form';
 import Footer from '@/src/components/Footer';
 import Modal from 'react-modal';
+import useSWR from 'swr';
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 const Contacts = () => {
+  //get data
+  const { data, error, isLoading } = useSWR(
+    'https://атлантис.рф/api/contacts',
+    fetcher
+  );
+
   //modal control
   const [isOpen, setIsOpen] = useState(false);
   const customStyles = {
@@ -32,7 +40,7 @@ const Contacts = () => {
         <Image
           fill={true}
           className='page__background'
-          src='/images/contacts-bg.png'
+          src={data && !isLoading && 'https://атлантис.рф' + data.data.imgUrl}
           alt='photo'
         />
         <div className='container'>
@@ -52,7 +60,7 @@ const Contacts = () => {
               Заполнить форму
             </span>
           </div>
-          <Footer />
+          <Footer data={data && !isLoading && data} />
         </div>
       </section>
       <Modal
