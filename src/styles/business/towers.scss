@@ -65,8 +65,13 @@
     path.point {
       opacity: 0.8;
 
+      &:hover {
+        @include jump;
+      }
+
       &.active {
         opacity: 1;
+        @include jump;
       }
     }
   }
