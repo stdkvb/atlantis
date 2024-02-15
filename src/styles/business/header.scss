@@ -124,6 +124,7 @@
       height: 100%;
       object-fit: cover;
       max-height: 54px;
+      max-width: 116px;
 
       @include tablet_small {
         max-height: 27px;

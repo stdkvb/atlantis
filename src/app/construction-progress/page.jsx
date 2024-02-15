@@ -3,11 +3,10 @@ import Link from 'next/link';
 import React, { useState, useRef, useCallback } from 'react';
 import useSWR from 'swr';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
-import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
-import 'swiper/css/thumbs';
+import 'swiper/css/pagination';
 import Modal from 'react-modal';
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
@@ -164,7 +163,9 @@ const ConstructioProgress = () => {
         style={customStyles}
         ariaHideApp={false}
       >
-        <div className='gallery__close' onClick={onModalClose}></div>
+        <div className='gallery__close' onClick={onModalClose}>
+          вернуться
+        </div>
         <div className='gallery'>
           <div className='container'>
             <h2>{currentMonth && currentMonth.title}</h2>
@@ -174,11 +175,11 @@ const ConstructioProgress = () => {
             className='gallery__swiper'
             spaceBetween={0}
             slidesPerView={1}
-            thumbs={{
-              swiper:
-                thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
+            modules={[Navigation, Pagination]}
+            navigation
+            pagination={{
+              type: 'fraction',
             }}
-            modules={[FreeMode, Navigation, Thumbs]}
           >
             {currentMonth &&
               currentMonth.images.map((image, i) => (
@@ -187,34 +188,6 @@ const ConstructioProgress = () => {
                 </SwiperSlide>
               ))}
           </Swiper>
-          <div className='gallery__preview'>
-            <Swiper
-              className='gallery__swiper-preview'
-              ref={sliderRef}
-              onSwiper={setThumbsSwiper}
-              spaceBetween={10}
-              slidesPerView={2}
-              freeMode={true}
-              watchSlidesProgress={true}
-              modules={[FreeMode, Thumbs]}
-              loop={true}
-            >
-              {currentMonth &&
-                currentMonth.images.map((image, i) => (
-                  <SwiperSlide key={i}>
-                    <img src={'https://атлантис.рф' + image} alt='photo' />
-                  </SwiperSlide>
-                ))}
-            </Swiper>
-            <div
-              className='swiper-button-prev prev-arrow'
-              onClick={handlePrev}
-            />
-            <div
-              className='swiper-button-next next-arrow'
-              onClick={handleNext}
-            />
-          </div>
         </div>
       </Modal>
     </section>

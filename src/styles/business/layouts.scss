@@ -95,6 +95,9 @@
       width: 100%;
       text-align: center;
       min-height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       &.active {
         background-color: $darkblue;
